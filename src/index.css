@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700&family=Almarai:wght@400;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--app-font, "Cairo", ui-sans-serif, system-ui, sans-serif);
+  --font-quran: "Amiri", serif;
+  
+  /* Colors */
+  --color-primary: #006948;
+  --color-primary-light: #00855D;
+  --color-primary-tint: #D1FAE5;
+  --color-accent: #68DBA9;
+  
+  /* Light Theme - Organic & Interconnected Palette */
+  --color-light-bg: #F2F9F6;
+  --color-light-surface: #F9FCFB;
+  --color-light-card: #FFFFFF;
+  --color-light-on-surface: #041A12;
+  --color-light-border: rgba(0, 105, 72, 0.06);
+  --color-light-accent: #EBF7F0;
+  --shadow-light-soft: 0 10px 30px -10px rgba(0, 105, 72, 0.08);
+  
+  /* Dark Theme */
+  --color-dark-bg: #0A1A12;
+  --color-dark-surface: #0F2018;
+  --color-dark-card: #162B1E;
+  --color-dark-on-surface: #C8E6D5;
+  --color-dark-border: rgba(104, 219, 169, 0.12);
+
+  --animate-marquee-rtl: marquee-rtl 15s linear infinite;
+  --animate-marquee-ltr: marquee-ltr 15s linear infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes marquee-rtl {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes marquee-ltr {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes glow {
+  0% { filter: drop-shadow(0 0 2px rgba(52, 211, 153, 0.4)); transform: scale(0.95); opacity: 0.8; }
+  100% { filter: drop-shadow(0 0 12px rgba(52, 211, 153, 1)); transform: scale(1.1); opacity: 1; }
+}
+
+@layer base {
+  :root {
+    --app-font: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  }
+  
+  :root[data-font="cairo"] {
+    --app-font: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  }
+  
+  :root[data-font="tajawal"] {
+    --app-font: "Tajawal", ui-sans-serif, system-ui, sans-serif;
+  }
+  
+  :root[data-font="almarai"] {
+    --app-font: "Almarai", ui-sans-serif, system-ui, sans-serif;
+  }
+  
+  :root[data-font="amiri"] {
+    --app-font: "Amiri", serif;
+  }
+
+  body {
+    @apply antialiased selection:bg-primary/20 selection:text-primary transition-colors duration-300;
+  }
+  
+  /* RTL Specifics */
+  [dir="rtl"] .chevron-flip {
+    @apply rotate-180;
+  }
+}
+
+.glass {
+  @apply backdrop-blur-xl bg-light-surface/80 dark:bg-dark-surface/80;
+}
+
+.mask-image-linear-gradient {
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.quran-text {
+  @apply font-quran leading-[2.0] text-right;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

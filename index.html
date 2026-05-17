@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy"
+      content="default-src 'self';
+               script-src 'self' 'unsafe-inline';
+               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+               font-src 'self' https://fonts.gstatic.com;
+               media-src https:;
+               img-src 'self' data: https:;
+               connect-src 'self' https://api.aladhan.com
+                 https://mp3quran.net https://www.mp3quran.net https://api.alquran.cloud
+                 https://quranenc.com https://download.quranicaudio.com
+                 https://api.qurancdn.com https://raw.githubusercontent.com
+                 https://cdn.jsdelivr.net https://data-rosy.vercel.app
+                 https://cdn.islamic.network;
+               frame-ancestors 'none';">
+    <title>My Google AI Studio App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
